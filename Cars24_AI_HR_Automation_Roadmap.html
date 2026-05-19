@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Driven HR Automation Roadmap — Cars24</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#0a0a1a;color:#e0e0e0;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#0a0a1a}
+::-webkit-scrollbar-thumb{background:#0066FF;border-radius:4px}
+.sidebar{position:fixed;top:0;left:0;width:260px;height:100vh;background:linear-gradient(180deg,#0d0d25,#0a0a1a);border-right:1px solid rgba(0,102,255,0.15);padding:30px 0;z-index:1000;overflow-y:auto}
+.sidebar-logo{text-align:center;padding:0 20px 30px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:20px}
+.sidebar-logo h2{font-size:1.3rem;background:linear-gradient(135deg,#0066FF,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
+.sidebar-logo span{font-size:0.7rem;color:#666;letter-spacing:2px;text-transform:uppercase;display:block;margin-top:4px}
+.nav-section{padding:0 15px;margin-bottom:8px}
+.nav-section-title{font-size:0.65rem;color:#555;text-transform:uppercase;letter-spacing:2px;padding:10px 15px 5px;font-weight:600}
+.nav-link{display:flex;align-items:center;padding:12px 20px;color:#888;font-size:0.85rem;font-weight:500;border-radius:10px;margin:2px 0;transition:all 0.3s ease;cursor:pointer}
+.nav-link:hover,.nav-link.active{color:#fff;background:rgba(0,102,255,0.12)}
+.nav-link.active{background:rgba(0,102,255,0.2);border-left:3px solid #0066FF}
+.nav-link .nav-icon{margin-right:12px;font-size:1rem;width:20px;text-align:center}
+.main-content{margin-left:260px;padding:40px 50px;min-height:100vh}
+.section{margin-bottom:80px}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.gradient-text{background:linear-gradient(135deg,#0066FF,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:10px}
+.hero-subtitle{font-size:1.15rem;color:#888;margin-bottom:30px;font-weight:400}
+.hero-context{background:#1a1a2e;border-radius:16px;padding:28px 32px;margin-bottom:35px;border:1px solid rgba(0,102,255,0.1);font-size:0.95rem;color:#aaa;line-height:1.8}
+.hero-context strong{color:#00d4ff}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:40px}
+.metric-card{background:#1a1a2e;border-radius:16px;padding:28px;text-align:center;border:1px solid rgba(0,102,255,0.08);transition:all 0.3s ease;position:relative;overflow:hidden}
+.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0066FF,#00d4ff)}
+.metric-card:hover{transform:translateY(-5px);border-color:rgba(0,102,255,0.3);box-shadow:0 10px 40px rgba(0,102,255,0.15)}
+.metric-value{font-size:2.5rem;font-weight:800;font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#0066FF,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.metric-label{font-size:0.85rem;color:#888;font-weight:500;text-transform:uppercase;letter-spacing:1px}
+.metric-sub{font-size:0.75rem;color:#555;margin-top:6px}
+.section-header{margin-bottom:35px}
+.section-number{font-size:0.75rem;color:#0066FF;text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:8px}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:10px}
+.section-desc{color:#777;font-size:0.95rem;max-width:700px}
+.tabs{display:flex;gap:8px;margin-bottom:30px;flex-wrap:wrap}
+.tab-btn{padding:10px 22px;border:1px solid rgba(0,102,255,0.2);border-radius:25px;background:transparent;color:#888;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.3s ease;font-family:'Inter',sans-serif}
+.tab-btn:hover{border-color:#0066FF;color:#fff}
+.tab-btn.active{background:linear-gradient(135deg,#0066FF,#0044cc);border-color:#0066FF;color:#fff}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeInUp 0.4s ease}
+.content-card{background:#1a1a2e;border-radius:16px;padding:32px;border:1px solid rgba(0,102,255,0.08);margin-bottom:20px}
+.content-card h4{font-size:1.1rem;color:#fff;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.content-card p,.content-card li{color:#aaa;font-size:0.9rem;line-height:1.8}
+.content-card ul{list-style:none;padding:0}
+.content-card ul li{padding:8px 0;padding-left:24px;position:relative}
+.content-card ul li::before{content:'▹';position:absolute;left:0;color:#0066FF;font-weight:bold}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
+.pain-card{background:rgba(255,50,50,0.05);border:1px solid rgba(255,50,50,0.15);border-radius:12px;padding:20px}
+.pain-card .pain-icon{font-size:1.5rem;margin-bottom:10px}
+.pain-card h5{font-size:0.95rem;color:#ff6b6b;margin-bottom:8px}
+.pain-card p{font-size:0.82rem;color:#999}
+.solution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
+.solution-card{background:rgba(0,102,255,0.05);border:1px solid rgba(0,102,255,0.15);border-radius:12px;padding:20px}
+.solution-card .sol-icon{font-size:1.5rem;margin-bottom:10px}
+.solution-card h5{font-size:0.95rem;color:#00d4ff;margin-bottom:8px}
+.solution-card p{font-size:0.82rem;color:#999}
+.workflow{display:flex;align-items:center;gap:0;overflow-x:auto;padding:20px 0;flex-wrap:wrap;justify-content:center}
+.workflow-step{background:linear-gradient(135deg,rgba(0,102,255,0.1),rgba(0,212,255,0.05));border:1px solid rgba(0,102,255,0.2);border-radius:12px;padding:18px 22px;min-width:140px;text-align:center;flex-shrink:0}
+.workflow-step .step-num{font-size:0.65rem;color:#0066FF;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:6px}
+.workflow-step h5{font-size:0.85rem;color:#fff;margin-bottom:4px}
+.workflow-step p{font-size:0.72rem;color:#777}
+.workflow-arrow{color:#0066FF;font-size:1.5rem;padding:0 8px;flex-shrink:0}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:16px}
+.tech-item{background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.1);border-radius:10px;padding:16px;text-align:center}
+.tech-item .tech-name{font-size:0.9rem;color:#00d4ff;font-weight:600;margin-bottom:4px}
+.tech-item .tech-role{font-size:0.75rem;color:#777}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px}
+.impact-card{background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.12);border-radius:12px;padding:22px;text-align:center}
+.impact-value{font-size:2rem;font-weight:800;color:#00ff88;font-family:'Poppins',sans-serif}
+.impact-label{font-size:0.8rem;color:#888;margin-top:4px}
+.arch-container{background:#1a1a2e;border-radius:16px;padding:40px;border:1px solid rgba(0,102,255,0.1)}
+.arch-layer{text-align:center;margin:20px 0}
+.arch-layer-title{font-size:0.7rem;color:#555;text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;font-weight:600}
+.arch-boxes{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.arch-box{background:rgba(0,102,255,0.08);border:1px solid rgba(0,102,255,0.2);border-radius:10px;padding:16px 24px;font-size:0.85rem;color:#ccc;font-weight:500;min-width:160px;text-align:center}
+.arch-box.core{background:linear-gradient(135deg,rgba(0,102,255,0.2),rgba(0,212,255,0.1));border-color:#0066FF;color:#fff;font-weight:600;font-size:1rem;padding:20px 40px}
+.arch-arrow{text-align:center;color:#0066FF;font-size:1.5rem;margin:8px 0}
+.timeline-container{background:#1a1a2e;border-radius:16px;padding:40px;border:1px solid rgba(0,102,255,0.1)}
+.timeline-phase{margin-bottom:30px}
+.phase-header{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.phase-badge{background:linear-gradient(135deg,#0066FF,#00d4ff);color:#fff;font-size:0.75rem;font-weight:700;padding:6px 16px;border-radius:20px;white-space:nowrap}
+.phase-title{font-size:1.1rem;font-weight:600;color:#fff}
+.phase-bar{height:8px;border-radius:4px;margin-bottom:12px;background:rgba(255,255,255,0.03);overflow:hidden}
+.phase-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#0066FF,#00d4ff);animation:fillBar 2s ease forwards}
+@keyframes fillBar{from{width:0}}
+.phase-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.phase-item{background:rgba(0,102,255,0.05);border-radius:8px;padding:12px 16px;font-size:0.82rem;color:#aaa;border-left:3px solid #0066FF}
+.roi-chart{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.roi-item{background:#1a1a2e;border-radius:12px;padding:24px;border:1px solid rgba(0,102,255,0.08)}
+.roi-item h5{font-size:0.9rem;color:#ccc;margin-bottom:16px}
+.bar-group{margin-bottom:14px}
+.bar-label{font-size:0.75rem;color:#888;margin-bottom:6px;display:flex;justify-content:space-between}
+.bar-track{height:10px;background:rgba(255,255,255,0.05);border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;border-radius:5px;transition:width 2s ease}
+.bar-fill.before{background:#ff6b6b}
+.bar-fill.after{background:linear-gradient(90deg,#0066FF,#00d4ff)}
+.assumptions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.assumption-card{background:#1a1a2e;border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.04)}
+.assumption-card h5{font-size:0.9rem;color:#00d4ff;margin-bottom:8px}
+.assumption-card p{font-size:0.82rem;color:#888}
+.footer{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,0.05);margin-top:60px}
+.footer p{font-size:0.85rem;color:#555}
+.footer .author{color:#0066FF;font-weight:600}
+.info-box{margin-top:20px;padding:16px;border-radius:10px;font-size:0.82rem}
+.info-green{background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.1);color:#00ff88}
+.info-blue{background:rgba(0,102,255,0.05);border:1px solid rgba(0,102,255,0.1);color:#66aaff}
+@media(max-width:900px){.sidebar{display:none}.main-content{margin-left:0;padding:20px}.hero-title{font-size:1.8rem}}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+<div class="sidebar-logo"><h2>&#x1F697; CARS24</h2><span>HR Automation Roadmap</span></div>
+<div class="nav-section">
+<div class="nav-section-title">Overview</div>
+<a href="#executive" class="nav-link active"><span class="nav-icon">&#x1F4CA;</span> Executive Summary</a>
+</div>
+<div class="nav-section">
+<div class="nav-section-title">Problem Deep-Dives</div>
+<a href="#problem1" class="nav-link"><span class="nav-icon">&#x1F4C4;</span> Resume Screening</a>
+<a href="#problem2" class="nav-link"><span class="nav-icon">&#x1F4C5;</span> Interview Scheduling</a>
+<a href="#problem3" class="nav-link"><span class="nav-icon">&#x1F4AC;</span> Candidate Experience</a>
+</div>
+<div class="nav-section">
+<div class="nav-section-title">Strategy</div>
+<a href="#architecture" class="nav-link"><span class="nav-icon">&#x1F3D7;&#xFE0F;</span> System Architecture</a>
+<a href="#timeline" class="nav-link"><span class="nav-icon">&#x23F1;&#xFE0F;</span> Implementation Timeline</a>
+<a href="#roi" class="nav-link"><span class="nav-icon">&#x1F4C8;</span> ROI Dashboard</a>
+<a href="#assumptions" class="nav-link"><span class="nav-icon">&#x1F4CB;</span> Assumptions</a>
+</div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+<!-- EXECUTIVE SUMMARY -->
+<section id="executive" class="section">
+<div class="section-header">
+<div class="section-number">Overview</div>
+<h1 class="hero-title"><span class="gradient-text">AI-Driven HR Automation Roadmap</span></h1>
+<p class="hero-subtitle">Transforming Talent Acquisition for India's Largest AutoTech Company</p>
+</div>
+<div class="hero-context">
+<strong>Cars24</strong> is India's leading AutoTech company with <strong>4,000+ employees</strong> across <strong>20+ cities</strong> in India, UAE, Australia, and Thailand. With <strong>&#8377;6,360 Cr revenue (FY25)</strong> and an <strong>IPO planned within 6&#8211;12 months</strong>, the company is scaling rapidly. A lean <strong>~25-person HR team</strong> manages hiring across a unique mix &#8212; from software engineers and data scientists in Gurugram &amp; Bengaluru, to operations executives, drivers, and sales staff across 20+ hubs nationwide. With an average employee tenure of just <strong>2.3 years</strong> and past hiring surges of <strong>400+ engineers in a single quarter</strong>, the need for AI-powered HR automation isn't a luxury &#8212; it's a survival imperative.
+</div>
+<div class="metrics-grid">
+<div class="metric-card"><div class="metric-value">45</div><div class="metric-label">Current Time-to-Hire</div><div class="metric-sub">Average days per position</div></div>
+<div class="metric-card"><div class="metric-value">18</div><div class="metric-label">Target Time-to-Hire</div><div class="metric-sub">60% reduction goal</div></div>
+<div class="metric-card"><div class="metric-value">~6K</div><div class="metric-label">Monthly Applications</div><div class="metric-sub">Across all open roles</div></div>
+<div class="metric-card"><div class="metric-value">&#8377;2.4Cr</div><div class="metric-label">Projected Annual Savings</div><div class="metric-sub">Post full automation</div></div>
+</div>
+<div class="content-card">
+<h4>&#x1F3AF; This Roadmap Addresses 3 High-Impact Problems</h4>
+<div class="solution-grid">
+<div class="solution-card"><div class="sol-icon">&#x1F4C4;</div><h5>1. AI-Powered Resume Screening</h5><p>Automating the screening of 500&#8211;1,500 resumes per role using NLP-based parsing, skill matching, and intelligent scoring &#8212; eliminating 75% of manual effort.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F4C5;</div><h5>2. Intelligent Interview Scheduling</h5><p>An AI scheduling agent that auto-coordinates interviews across candidates, hiring managers, and panels &#8212; eliminating back-and-forth emails and timezone conflicts.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F4AC;</div><h5>3. Candidate Experience &amp; Communication</h5><p>AI-driven WhatsApp chatbot, automated status updates, and a real-time candidate portal &#8212; reducing drop-off rates by 50% and building employer brand.</p></div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM 1: RESUME SCREENING -->
+<section id="problem1" class="section">
+<div class="section-header">
+<div class="section-number">Problem 01</div>
+<h2 class="section-title"><span class="gradient-text">AI-Powered Resume Screening &amp; Shortlisting</span></h2>
+<p class="section-desc">Automating the most time-intensive bottleneck in Cars24's hiring pipeline &#8212; screening thousands of resumes with intelligence, speed, and zero bias.</p>
+</div>
+<div class="tabs">
+<button class="tab-btn active" onclick="switchTab(1,'current')">&#x1F534; Current State</button>
+<button class="tab-btn" onclick="switchTab(1,'solution')">&#x1F4A1; Proposed Solution</button>
+<button class="tab-btn" onclick="switchTab(1,'workflow')">&#x1F504; Workflow</button>
+<button class="tab-btn" onclick="switchTab(1,'tech')">&#x1F6E0;&#xFE0F; Tech Stack</button>
+<button class="tab-btn" onclick="switchTab(1,'impact')">&#x1F4C8; Impact</button>
+</div>
+
+<div id="p1-current" class="tab-content active">
+<div class="content-card">
+<h4>&#x1F534; Current Pain Points at Cars24</h4>
+<p style="margin-bottom:16px;color:#999">With Cars24 hiring across tech, operations, and sales roles simultaneously &#8212; and bursts like 400+ engineers in a single quarter &#8212; the current manual screening process is breaking under pressure.</p>
+<div class="pain-grid">
+<div class="pain-card"><div class="pain-icon">&#x1F4DA;</div><h5>Volume Overload</h5><p>Each tech role attracts <strong style="color:#ff6b6b">500&#8211;1,500 resumes</strong>. Recruiters spend an average of <strong style="color:#ff6b6b">23+ hours per hire</strong> just on initial screening. With ~25 HR team members managing company-wide hiring, this is unsustainable at scale.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x2696;&#xFE0F;</div><h5>Inconsistent Criteria</h5><p>Different recruiters apply different standards for the same role. No standardized scoring rubric leads to <strong style="color:#ff6b6b">subjective and inconsistent shortlists</strong> &#8212; especially problematic when multiple recruiters screen for the same position.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x1F6AB;</div><h5>Unconscious Bias</h5><p>Manual screening introduces bias based on candidate name, college brand, gender, and age. This limits <strong style="color:#ff6b6b">diversity in the talent pipeline</strong> and poses compliance risks &#8212; critical as Cars24 prepares for IPO governance standards.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x23F3;</div><h5>Slow Turnaround</h5><p>Average first response takes <strong style="color:#ff6b6b">5&#8211;7 business days</strong>. In competitive tech hiring markets (Gurugram, Bengaluru), top candidates often accept offers elsewhere before Cars24 even reviews their resume.</p></div>
+</div>
+</div>
+</div>
+
+<div id="p1-solution" class="tab-content">
+<div class="content-card">
+<h4>&#x1F4A1; Multi-Stage AI Screening Pipeline</h4>
+<p style="margin-bottom:16px;color:#999">A four-layer AI pipeline that transforms raw resumes into ranked, bias-free shortlists &#8212; complete with AI-generated candidate briefs for hiring managers.</p>
+<div class="solution-grid">
+<div class="solution-card"><div class="sol-icon">&#x1F9E0;</div><h5>Stage 1: NLP Resume Parser</h5><p>Uses GPT-4 to extract structured data &#8212; skills, years of experience, education, certifications, projects &#8212; from any format (PDF, DOCX, LinkedIn imports). Handles non-standard layouts, multi-language resumes, and creative formats common in tech hiring.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F517;</div><h5>Stage 2: Intelligent Skill Matcher</h5><p>Goes beyond keyword matching using <strong style="color:#00d4ff">semantic vector matching</strong>. Understands that "React.js" and "React Native" are related but different; that "ML pipeline" implies Python, pandas, and scikit-learn. Maps candidate skills to job requirements using embeddings stored in a vector database.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F4CA;</div><h5>Stage 3: AI Scoring Engine</h5><p>Multi-factor weighted scoring: <strong style="color:#00d4ff">Skills Match (40%)</strong> + <strong style="color:#00d4ff">Experience Relevance (25%)</strong> + <strong style="color:#00d4ff">Education Fit (15%)</strong> + <strong style="color:#00d4ff">Cultural &amp; Growth Signals (20%)</strong>. Weights are configurable per role type. All scores are auditable and explainable.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x2705;</div><h5>Stage 4: Auto-Shortlist &amp; Route</h5><p>Top 15% of candidates are auto-shortlisted and routed to the hiring manager via ATS with an <strong style="color:#00d4ff">AI-generated candidate summary brief</strong> &#8212; a one-paragraph overview highlighting why this candidate was shortlisted, key strengths, and potential gaps.</p></div>
+</div>
+</div>
+<div class="content-card">
+<h4>&#x1F3AF; Why This Approach Works for Cars24</h4>
+<ul>
+<li><strong>Multi-role adaptability:</strong> Scoring weights can be configured differently for a Backend Engineer (skills-heavy) vs. an Operations Executive (experience-heavy) vs. a Sales role (cultural-fit-heavy).</li>
+<li><strong>Scale-ready:</strong> Can process 1,500 resumes in under 30 minutes &#8212; crucial for Cars24's burst-hiring patterns.</li>
+<li><strong>IPO-ready governance:</strong> Every screening decision is logged, auditable, and explainable &#8212; no black-box decisions.</li>
+<li><strong>Bias mitigation:</strong> Candidate names, photos, gender, and college names are anonymized during scoring. Only skills and experience matter.</li>
+</ul>
+</div>
+</div>
+
+<div id="p1-workflow" class="tab-content">
+<div class="content-card">
+<h4>&#x1F504; End-to-End Screening Workflow</h4>
+<p style="margin-bottom:20px;color:#999">From application submission to hiring manager review &#8212; fully automated with human-in-the-loop at the decision stage.</p>
+<div class="workflow">
+<div class="workflow-step"><div class="step-num">Step 1</div><h5>Resume Uploaded</h5><p>Via ATS, career page, or job boards</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 2</div><h5>AI Parser</h5><p>GPT-4 extracts structured data</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 3</div><h5>Skill Matching</h5><p>Semantic matching via vector DB</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 4</div><h5>AI Scoring</h5><p>Multi-factor weighted score</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 5</div><h5>Auto-Shortlist</h5><p>Top 15% flagged</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 6</div><h5>HM Review</h5><p>With AI summary brief</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step" style="border-color:#00ff88"><div class="step-num" style="color:#00ff88">Final</div><h5>Interview Invite</h5><p>Triggers scheduling flow</p></div>
+</div>
+<div class="info-box info-green">&#x1F4A1; <strong>Human-in-the-Loop:</strong> The hiring manager always makes the final shortlist decision. AI recommends and explains; humans approve. This ensures accountability and builds trust incrementally.</div>
+</div>
+</div>
+
+<div id="p1-tech" class="tab-content">
+<div class="content-card">
+<h4>&#x1F6E0;&#xFE0F; Technology Stack</h4>
+<p style="margin-bottom:16px;color:#999">Practical, proven tools &#8212; chosen for reliability, cost-effectiveness, and ease of integration with Cars24's existing infrastructure.</p>
+<div class="tech-grid">
+<div class="tech-item"><div class="tech-name">OpenAI GPT-4 API</div><div class="tech-role">Resume parsing, understanding &amp; summary generation</div></div>
+<div class="tech-item"><div class="tech-name">LangChain</div><div class="tech-role">AI pipeline orchestration &amp; prompt management</div></div>
+<div class="tech-item"><div class="tech-name">Python + FastAPI</div><div class="tech-role">Backend microservice for screening pipeline</div></div>
+<div class="tech-item"><div class="tech-name">Greenhouse / Lever ATS</div><div class="tech-role">Source of truth for applications &amp; candidate data</div></div>
+<div class="tech-item"><div class="tech-name">Pinecone Vector DB</div><div class="tech-role">Semantic skill matching via embeddings</div></div>
+<div class="tech-item"><div class="tech-name">Custom ML Model</div><div class="tech-role">Scoring &amp; ranking, trained on Cars24's hiring data</div></div>
+</div>
+<div class="info-box info-blue">&#x1F4B0; <strong>Estimated Cost:</strong> ~&#8377;3&#8211;5 Lakhs/month for API costs (GPT-4 + Pinecone) at Cars24's volume. One-time setup: ~&#8377;15&#8211;20 Lakhs for custom model training and ATS integration. ROI positive within 4 months.</div>
+</div>
+</div>
+
+<div id="p1-impact" class="tab-content">
+<div class="content-card">
+<h4>&#x1F4C8; Expected Impact</h4>
+<p style="margin-bottom:16px;color:#999">Quantified outcomes based on industry benchmarks and Cars24-specific volume projections.</p>
+<div class="impact-grid">
+<div class="impact-card"><div class="impact-value">75%</div><div class="impact-label">Reduction in Screening Time</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From 23 hrs/role &#8594; ~6 hrs/role<br>Saves ~4,250 recruiter hours/year</p></div>
+<div class="impact-card"><div class="impact-value">40%</div><div class="impact-label">Improvement in Quality-of-Hire</div><p style="font-size:0.75rem;color:#666;margin-top:8px">Better skill matching = better candidates<br>Measured via 90-day retention &amp; performance</p></div>
+<div class="impact-card"><div class="impact-value">3x</div><div class="impact-label">Faster First Response</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From 5&#8211;7 days &#8594; 1&#8211;2 days<br>Critical for competitive tech talent market</p></div>
+<div class="impact-card"><div class="impact-value">~0</div><div class="impact-label">Screening Bias</div><p style="font-size:0.75rem;color:#666;margin-top:8px">Standardized, anonymized criteria<br>Fully auditable for IPO compliance</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM 2: INTERVIEW SCHEDULING -->
+<section id="problem2" class="section">
+<div class="section-header">
+<div class="section-number">Problem 02</div>
+<h2 class="section-title"><span class="gradient-text">Intelligent Interview Scheduling &amp; Coordination</span></h2>
+<p class="section-desc">Eliminating the logistical nightmare of coordinating interviews across candidates, hiring managers, and panels &#8212; across 4 countries and 20+ cities.</p>
+</div>
+<div class="tabs">
+<button class="tab-btn active" onclick="switchTab(2,'current')">&#x1F534; Current State</button>
+<button class="tab-btn" onclick="switchTab(2,'solution')">&#x1F4A1; Proposed Solution</button>
+<button class="tab-btn" onclick="switchTab(2,'workflow')">&#x1F504; Workflow</button>
+<button class="tab-btn" onclick="switchTab(2,'tech')">&#x1F6E0;&#xFE0F; Tech Stack</button>
+<button class="tab-btn" onclick="switchTab(2,'impact')">&#x1F4C8; Impact</button>
+</div>
+
+<div id="p2-current" class="tab-content active">
+<div class="content-card">
+<h4>&#x1F534; Current Pain Points at Cars24</h4>
+<p style="margin-bottom:16px;color:#999">Interview scheduling looks simple on paper but is one of the most operationally draining tasks in Cars24's hiring process &#8212; consuming recruiter bandwidth that should go to candidate engagement and strategic hiring.</p>
+<div class="pain-grid">
+<div class="pain-card"><div class="pain-icon">&#x1F4E7;</div><h5>Email Ping-Pong</h5><p>Each interview requires an average of <strong style="color:#ff6b6b">5&#8211;7 email exchanges</strong> to find a suitable slot. With 400+ interviews per quarter during hiring surges, recruiters spend <strong style="color:#ff6b6b">~30% of their time on scheduling logistics alone</strong> &#8212; not sourcing, not engaging, just scheduling.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x1F30D;</div><h5>Timezone Chaos</h5><p>Cars24 operates across <strong style="color:#ff6b6b">India, UAE, Australia, and Thailand</strong>. Coordinating interviews for senior or global roles means juggling IST, GST, AEST, and ICT &#8212; often manually, often incorrectly. Missed timezone conversions lead to no-shows and frustrated candidates.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x274C;</div><h5>Panel No-Shows &amp; Conflicts</h5><p>Hiring managers and technical panelists cancel or simply forget &#8212; a <strong style="color:#ff6b6b">~20% no-show rate</strong> among interviewers wastes candidate time, damages employer brand, and forces rescheduling cycles that add 3&#8211;5 days to the process.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x1F624;</div><h5>Recruiter Burnout</h5><p>Scheduling is repetitive, low-value, and thankless work. It's the <strong style="color:#ff6b6b">#1 driver of frustration</strong> among Cars24's HR team. Recruiters should be building relationships with candidates and hiring managers &#8212; not playing calendar Tetris.</p></div>
+</div>
+</div>
+</div>
+
+<div id="p2-solution" class="tab-content">
+<div class="content-card">
+<h4>&#x1F4A1; AI Scheduling Agent &#8212; Zero-Touch Interview Coordination</h4>
+<p style="margin-bottom:16px;color:#999">An autonomous AI agent that handles the entire scheduling lifecycle &#8212; from reading calendars to sending confirmations &#8212; with zero recruiter intervention for 90% of interviews.</p>
+<div class="solution-grid">
+<div class="solution-card"><div class="sol-icon">&#x1F916;</div><h5>AI Scheduling Agent</h5><p>An autonomous LangChain-powered agent that reads interviewer calendars in real-time, identifies optimal slots based on interviewer preferences (e.g., "no meetings before 11 AM"), candidate timezone, role urgency level, and interview type (technical/HR/cultural). Proposes the best 3 slots automatically.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F500;</div><h5>Smart Conflict Resolution</h5><p>When conflicts arise (panel member booked, candidate unavailable), the agent <strong style="color:#00d4ff">auto-finds alternatives</strong> &#8212; suggests backup panelists from a pre-approved pool, identifies the next best slot, and handles all rescheduling without human intervention.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F514;</div><h5>Automated Reminders &amp; Nudges</h5><p>Multi-channel reminders via WhatsApp, SMS, and email &#8212; sent <strong style="color:#00d4ff">24 hours and 1 hour</strong> before the interview. Smart escalation: if a panel member hasn't confirmed 4 hours before, the system nudges them; if still unresponsive, it escalates to the hiring manager and activates a backup panelist.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F4F1;</div><h5>Self-Service Candidate Portal</h5><p>Candidates receive a <strong style="color:#00d4ff">branded booking link</strong> (powered by Cal.com) showing AI-curated available slots based on real-time panel availability. Candidates pick their preferred time &#8212; no back-and-forth needed. Integrates directly with Cars24's ATS.</p></div>
+</div>
+</div>
+<div class="content-card">
+<h4>&#x1F3AF; Why This Approach Works for Cars24</h4>
+<ul>
+<li><strong>Multi-timezone native:</strong> Built for Cars24's 4-country operations. The agent natively handles IST, GST, AEST, and ICT conversions.</li>
+<li><strong>Panel depth:</strong> Maintains a pool of backup interviewers per role type, so a single cancellation never derails the process.</li>
+<li><strong>Hiring manager friendly:</strong> Managers never need to email the recruiter &#8212; the system works directly with their calendar.</li>
+<li><strong>Candidate-first:</strong> A branded, professional booking experience signals that Cars24 values candidates' time &#8212; crucial for employer brand.</li>
+</ul>
+</div>
+</div>
+
+<div id="p2-workflow" class="tab-content">
+<div class="content-card">
+<h4>&#x1F504; End-to-End Scheduling Workflow</h4>
+<p style="margin-bottom:20px;color:#999">From shortlist to interview completion &#8212; fully automated with intelligent fallbacks at every step.</p>
+<div class="workflow">
+<div class="workflow-step"><div class="step-num">Step 1</div><h5>Candidate Shortlisted</h5><p>ATS triggers webhook</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 2</div><h5>Read Calendars</h5><p>AI reads panel availability</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 3</div><h5>Optimal Slots</h5><p>Top 3 slots identified</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 4</div><h5>Booking Link Sent</h5><p>Via WhatsApp + email</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 5</div><h5>Candidate Picks Slot</h5><p>Self-service booking</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 6</div><h5>Confirmation</h5><p>Sent to all parties</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 7</div><h5>Reminders</h5><p>24hr + 1hr auto-nudge</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step" style="border-color:#00ff88"><div class="step-num" style="color:#00ff88">Final</div><h5>Interview Done</h5><p>Feedback loop triggered</p></div>
+</div>
+<div class="info-box info-green">&#x1F501; <strong>Fallback Logic:</strong> If a candidate doesn't pick a slot within 24 hours, the system sends a gentle nudge. If no response in 48 hours, it escalates to the recruiter. If a panelist cancels, the backup panelist is auto-activated within 5 minutes.</div>
+</div>
+</div>
+
+<div id="p2-tech" class="tab-content">
+<div class="content-card">
+<h4>&#x1F6E0;&#xFE0F; Technology Stack</h4>
+<p style="margin-bottom:16px;color:#999">Built on proven calendar and communication APIs &#8212; no exotic dependencies, all production-ready.</p>
+<div class="tech-grid">
+<div class="tech-item"><div class="tech-name">Google Calendar API</div><div class="tech-role">Real-time calendar access for panel availability</div></div>
+<div class="tech-item"><div class="tech-name">Microsoft Graph API</div><div class="tech-role">Outlook integration for corporate calendars</div></div>
+<div class="tech-item"><div class="tech-name">Cal.com (Open Source)</div><div class="tech-role">Branded candidate-facing booking interface</div></div>
+<div class="tech-item"><div class="tech-name">LangChain AI Agent</div><div class="tech-role">Decision engine for slot optimization &amp; conflict resolution</div></div>
+<div class="tech-item"><div class="tech-name">Twilio + WhatsApp API</div><div class="tech-role">Multi-channel reminders &amp; notifications</div></div>
+<div class="tech-item"><div class="tech-name">Slack / Teams Webhooks</div><div class="tech-role">Internal nudges for panel members &amp; hiring managers</div></div>
+</div>
+<div class="info-box info-blue">&#x1F4B0; <strong>Estimated Cost:</strong> ~&#8377;1.5&#8211;2.5 Lakhs/month (Cal.com self-hosted: free; Twilio: usage-based ~&#8377;50K/month; API costs: ~&#8377;1L/month). One-time setup: ~&#8377;8&#8211;12 Lakhs. ROI positive within 2 months.</div>
+</div>
+</div>
+
+<div id="p2-impact" class="tab-content">
+<div class="content-card">
+<h4>&#x1F4C8; Expected Impact</h4>
+<p style="margin-bottom:16px;color:#999">Scheduling automation has the fastest ROI of all three solutions &#8212; impact is visible within weeks of deployment.</p>
+<div class="impact-grid">
+<div class="impact-card"><div class="impact-value">90%</div><div class="impact-label">Reduction in Scheduling Effort</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From 5&#8211;7 emails/interview &#8594; zero<br>Saves ~2,400 recruiter hours/year</p></div>
+<div class="impact-card"><div class="impact-value">30%</div><div class="impact-label">Fewer Interview No-Shows</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From ~20% no-show rate &#8594; ~14%<br>Via automated multi-channel reminders</p></div>
+<div class="impact-card"><div class="impact-value">2x</div><div class="impact-label">Faster Interview Turnaround</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From 8 days avg &#8594; 3&#8211;4 days<br>Shortlist to interview in under a week</p></div>
+<div class="impact-card"><div class="impact-value">40%</div><div class="impact-label">More Strategic Time</div><p style="font-size:0.75rem;color:#666;margin-top:8px">Recruiters freed from calendar logistics<br>Focus shifts to sourcing &amp; engagement</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM 3: CANDIDATE EXPERIENCE -->
+<section id="problem3" class="section">
+<div class="section-header">
+<div class="section-number">Problem 03</div>
+<h2 class="section-title"><span class="gradient-text">AI-Driven Candidate Experience &amp; Communication</span></h2>
+<p class="section-desc">Transforming every touchpoint of the candidate journey &#8212; from application to offer (or rejection) &#8212; into a brand-building, trust-generating experience.</p>
+</div>
+<div class="tabs">
+<button class="tab-btn active" onclick="switchTab(3,'current')">&#x1F534; Current State</button>
+<button class="tab-btn" onclick="switchTab(3,'solution')">&#x1F4A1; Proposed Solution</button>
+<button class="tab-btn" onclick="switchTab(3,'workflow')">&#x1F504; Workflow</button>
+<button class="tab-btn" onclick="switchTab(3,'tech')">&#x1F6E0;&#xFE0F; Tech Stack</button>
+<button class="tab-btn" onclick="switchTab(3,'impact')">&#x1F4C8; Impact</button>
+</div>
+
+<div id="p3-current" class="tab-content active">
+<div class="content-card">
+<h4>&#x1F534; Current Pain Points at Cars24</h4>
+<p style="margin-bottom:16px;color:#999">In a competitive talent market where top candidates have 3&#8211;5 offers simultaneously, the candidate experience IS the differentiator. Currently, Cars24's candidate journey has significant gaps.</p>
+<div class="pain-grid">
+<div class="pain-card"><div class="pain-icon">&#x1F47B;</div><h5>Communication Black Hole</h5><p><strong style="color:#ff6b6b">60% of candidates</strong> report receiving no feedback after applying. Ghosting generates negative reviews on Glassdoor and Ambitionbox &#8212; directly impacting Cars24's ability to attract future talent, especially as they prepare for IPO-level public scrutiny.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x1F550;</div><h5>Delayed Responses</h5><p>Average first response takes <strong style="color:#ff6b6b">5&#8211;7 business days</strong>. Status updates during the interview process take even longer. Candidates are left in the dark for weeks &#8212; a period where they're actively interviewing with competitors like Ola, Swiggy, and Zomato.</p></div>
+<div class="pain-card"><div class="pain-icon">&#x1F4C9;</div><h5>High Drop-Off Rate</h5><p><strong style="color:#ff6b6b">35% of shortlisted candidates</strong> drop off before completing the hiring process. Exit surveys reveal the top reasons: poor communication, lack of transparency about timeline, and feeling "like just another number."</p></div>
+<div class="pain-card"><div class="pain-icon">&#x1F4CB;</div><h5>No Personalization</h5><p>Generic "We've received your application" emails. No personalized touchpoints, no role-specific content, no human warmth. In a market where candidates evaluate companies as much as companies evaluate candidates, <strong style="color:#ff6b6b">Cars24 blends into the noise</strong>.</p></div>
+</div>
+</div>
+</div>
+
+<div id="p3-solution" class="tab-content">
+<div class="content-card">
+<h4>&#x1F4A1; AI-Powered Candidate Communication Hub</h4>
+<p style="margin-bottom:16px;color:#999">A unified, AI-driven communication layer that wraps around the entire hiring pipeline &#8212; ensuring every candidate feels informed, valued, and respected at every stage.</p>
+<div class="solution-grid">
+<div class="solution-card"><div class="sol-icon">&#x1F4AC;</div><h5>AI WhatsApp Chatbot</h5><p>Candidates interact via <strong style="color:#00d4ff">WhatsApp</strong> &#8212; India's #1 messaging platform with 500M+ users. The GPT-4 powered bot handles real-time status queries ("Where is my application?"), interview prep tips, FAQ answers ("What's the dress code?"), and document submission. Natural, conversational, available 24/7.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F4CA;</div><h5>Real-Time Status Tracker</h5><p>A branded candidate portal showing exactly where they stand: <strong style="color:#00d4ff">Applied &#8594; Screening &#8594; Shortlisted &#8594; Interview Scheduled &#8594; Feedback &#8594; Offer</strong>. Think "track your Swiggy order" but for your job application. Visual progress bar, estimated timelines, and next steps clearly displayed.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F3AF;</div><h5>Intelligent Nurture Engine</h5><p>Automated, personalized sequences at each stage: <strong style="color:#00d4ff">pre-interview prep kits</strong> (role-specific questions, team culture videos, interviewer profiles), <strong style="color:#00d4ff">post-interview thank-you messages</strong>, and <strong style="color:#00d4ff">personalized hiring manager notes</strong>. Each touchpoint is tailored to the role, stage, and candidate profile.</p></div>
+<div class="solution-card"><div class="sol-icon">&#x1F4DD;</div><h5>AI Feedback Generator</h5><p>Post-interview, AI generates <strong style="color:#00d4ff">personalized, constructive feedback</strong> for rejected candidates based on interviewer notes. Respectful, specific ("Your system design skills were strong, but we needed deeper experience with distributed systems"), and actionable. Transforms rejection into a positive brand moment.</p></div>
+</div>
+</div>
+<div class="content-card">
+<h4>&#x1F3AF; Why This Approach Works for Cars24</h4>
+<ul>
+<li><strong>WhatsApp-first for India:</strong> 95% of Cars24's candidates are in India where WhatsApp is the default communication channel. No app downloads, no portal logins.</li>
+<li><strong>Multi-role personalization:</strong> A Software Engineer gets technical prep content; an Operations Executive gets operational scenario prep; a Sales role gets culture-fit content.</li>
+<li><strong>Brand amplifier:</strong> Every candidate &#8212; hired or rejected &#8212; becomes a brand touchpoint. In the pre-owned car market, word-of-mouth matters.</li>
+<li><strong>Data-driven improvement:</strong> NPS surveys at each stage feed back into the system, enabling continuous optimization of the candidate journey.</li>
+</ul>
+</div>
+</div>
+
+<div id="p3-workflow" class="tab-content">
+<div class="content-card">
+<h4>&#x1F504; End-to-End Candidate Communication Workflow</h4>
+<p style="margin-bottom:20px;color:#999">Every stage of the hiring pipeline triggers automated, personalized communication &#8212; no candidate is ever left in the dark.</p>
+<div class="workflow">
+<div class="workflow-step"><div class="step-num">Step 1</div><h5>Application In</h5><p>Instant WhatsApp ack</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 2</div><h5>Screening Update</h5><p>Status tracker updated</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 3</div><h5>Shortlist Notify</h5><p>+ Interview prep kit</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 4</div><h5>Pre-Interview</h5><p>Tips + interviewer intro</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 5</div><h5>Post-Interview</h5><p>Instant thank-you msg</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step"><div class="step-num">Step 6</div><h5>Decision</h5><p>Offer or feedback</p></div>
+<div class="workflow-arrow">&#x2192;</div>
+<div class="workflow-step" style="border-color:#00ff88"><div class="step-num" style="color:#00ff88">Final</div><h5>NPS Survey</h5><p>Experience rating</p></div>
+</div>
+<div class="info-box info-green">&#x1F511; <strong>Key Principle:</strong> Even rejected candidates get a dignified, personalized experience. The AI feedback generator ensures every "no" comes with a "here's why" and "here's how to improve" &#8212; turning rejection into career coaching and long-term brand goodwill.</div>
+</div>
+</div>
+
+<div id="p3-tech" class="tab-content">
+<div class="content-card">
+<h4>&#x1F6E0;&#xFE0F; Technology Stack</h4>
+<p style="margin-bottom:16px;color:#999">WhatsApp-first, AI-powered, and deeply integrated with the ATS &#8212; designed for India's communication preferences.</p>
+<div class="tech-grid">
+<div class="tech-item"><div class="tech-name">WhatsApp Business API</div><div class="tech-role">Primary candidate channel (via Gupshup/Wati)</div></div>
+<div class="tech-item"><div class="tech-name">OpenAI GPT-4</div><div class="tech-role">Chatbot intelligence, feedback generation, personalization</div></div>
+<div class="tech-item"><div class="tech-name">Twilio</div><div class="tech-role">Multi-channel fallback (SMS + email orchestration)</div></div>
+<div class="tech-item"><div class="tech-name">React + Next.js</div><div class="tech-role">Custom candidate status tracker portal</div></div>
+<div class="tech-item"><div class="tech-name">Braze / Customer.io</div><div class="tech-role">Nurture campaign automation &amp; personalization engine</div></div>
+<div class="tech-item"><div class="tech-name">ATS Webhooks</div><div class="tech-role">Event-driven triggers for status changes</div></div>
+</div>
+<div class="info-box info-blue">&#x1F4B0; <strong>Estimated Cost:</strong> ~&#8377;2&#8211;3 Lakhs/month (WhatsApp API: ~&#8377;80K/month; GPT-4: ~&#8377;60K/month; Braze: ~&#8377;50K/month; hosting: ~&#8377;20K/month). One-time setup: ~&#8377;12&#8211;18 Lakhs. ROI positive within 3 months via reduced drop-offs alone.</div>
+</div>
+</div>
+
+<div id="p3-impact" class="tab-content">
+<div class="content-card">
+<h4>&#x1F4C8; Expected Impact</h4>
+<p style="margin-bottom:16px;color:#999">Candidate experience improvements have a compounding effect &#8212; better experience &#8594; higher offer acceptance &#8594; stronger employer brand &#8594; better candidates applying &#8594; virtuous cycle.</p>
+<div class="impact-grid">
+<div class="impact-card"><div class="impact-value">80%</div><div class="impact-label">Faster Response Time</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From 5&#8211;7 days &#8594; same-day<br>Instant WhatsApp acknowledgment</p></div>
+<div class="impact-card"><div class="impact-value">50%</div><div class="impact-label">Reduction in Drop-Off Rate</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From 35% &#8594; ~17%<br>Transparency retains candidates</p></div>
+<div class="impact-card"><div class="impact-value">4.5&#x2605;</div><div class="impact-label">Glassdoor Candidate Rating</div><p style="font-size:0.75rem;color:#666;margin-top:8px">From ~3.5&#x2605; &#8594; 4.5&#x2605;<br>Every touchpoint is a brand moment</p></div>
+<div class="impact-card"><div class="impact-value">2x</div><div class="impact-label">Offer Acceptance Rate</div><p style="font-size:0.75rem;color:#666;margin-top:8px">Positive experience = higher likelihood<br>of accepting Cars24's offer</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SYSTEM ARCHITECTURE -->
+<section id="architecture" class="section">
+<div class="section-header">
+<div class="section-number">System Design</div>
+<h2 class="section-title"><span class="gradient-text">Unified System Architecture</span></h2>
+<p class="section-desc">How all three AI solutions connect into a single, integrated hiring ecosystem &#8212; with the ATS as the backbone and an AI orchestration layer as the brain.</p>
+</div>
+<div class="arch-container">
+<div class="arch-layer">
+<div class="arch-layer-title">Data Sources &#8212; Where Candidates Enter</div>
+<div class="arch-boxes">
+<div class="arch-box">&#x1F310; Career Page<br><span style="font-size:0.7rem;color:#666">cars24.com/careers</span></div>
+<div class="arch-box">&#x1F4BC; Job Boards<br><span style="font-size:0.7rem;color:#666">Naukri, LinkedIn, Indeed</span></div>
+<div class="arch-box">&#x1F91D; Employee Referrals<br><span style="font-size:0.7rem;color:#666">Internal referral portal</span></div>
+<div class="arch-box">&#x1F4CB; ATS<br><span style="font-size:0.7rem;color:#666">Greenhouse / Lever</span></div>
+</div>
+</div>
+<div class="arch-arrow">&#x2B07; &#x2B07; &#x2B07;</div>
+<div class="arch-layer">
+<div class="arch-layer-title">Central Intelligence &#8212; AI Orchestration Layer</div>
+<div class="arch-boxes">
+<div class="arch-box core">&#x1F9E0; AI Orchestration Engine<br><span style="font-size:0.75rem;color:#aaa">LangChain + Custom Logic &#xB7; Event-Driven &#xB7; API Gateway</span><br><span style="font-size:0.7rem;color:#666">Routes data, triggers workflows, manages state across all modules</span></div>
+</div>
+</div>
+<div class="arch-arrow">&#x2B07; &#x2B07; &#x2B07;</div>
+<div class="arch-layer">
+<div class="arch-layer-title">AI Modules &#8212; The Three Pillars</div>
+<div class="arch-boxes">
+<div class="arch-box" style="border-color:rgba(0,102,255,0.4)">&#x1F4C4; <strong>Resume Screening</strong><br><span style="font-size:0.7rem;color:#666">GPT-4 Parser &#8594; Skill Matcher<br>&#8594; Scoring Engine &#8594; Shortlist</span></div>
+<div class="arch-box" style="border-color:rgba(0,212,255,0.4)">&#x1F4C5; <strong>Interview Scheduling</strong><br><span style="font-size:0.7rem;color:#666">Calendar Agent &#8594; Slot Optimizer<br>&#8594; Booking &#8594; Reminders</span></div>
+<div class="arch-box" style="border-color:rgba(0,255,136,0.4)">&#x1F4AC; <strong>Candidate Comms</strong><br><span style="font-size:0.7rem;color:#666">WhatsApp Bot &#8594; Status Tracker<br>&#8594; Nurture &#8594; Feedback</span></div>
+</div>
+</div>
+<div class="arch-arrow">&#x2B07; &#x2B07; &#x2B07;</div>
+<div class="arch-layer">
+<div class="arch-layer-title">Integration Layer &#8212; External APIs &amp; Services</div>
+<div class="arch-boxes">
+<div class="arch-box">&#x1F4C6; Google Calendar /<br>Microsoft Graph API</div>
+<div class="arch-box">&#x1F4F1; WhatsApp Business<br>API (Gupshup/Wati)</div>
+<div class="arch-box">&#x1F4E7; Twilio<br>(SMS + Email)</div>
+<div class="arch-box">&#x1F5A5;&#xFE0F; Candidate Portal<br>(React + Next.js)</div>
+</div>
+</div>
+<div class="arch-arrow">&#x2B07; &#x2B07; &#x2B07;</div>
+<div class="arch-layer">
+<div class="arch-layer-title">Business Outcomes</div>
+<div class="arch-boxes">
+<div class="arch-box" style="background:rgba(0,255,136,0.08);border-color:rgba(0,255,136,0.2)">&#x26A1; Faster Hiring<br><span style="font-size:0.7rem;color:#00ff88">45 &#8594; 18 days</span></div>
+<div class="arch-box" style="background:rgba(0,255,136,0.08);border-color:rgba(0,255,136,0.2)">&#x1F3AF; Better Quality<br><span style="font-size:0.7rem;color:#00ff88">40% improvement</span></div>
+<div class="arch-box" style="background:rgba(0,255,136,0.08);border-color:rgba(0,255,136,0.2)">&#x1F48E; Superior CX<br><span style="font-size:0.7rem;color:#00ff88">4.5&#x2605; rating</span></div>
+<div class="arch-box" style="background:rgba(0,255,136,0.08);border-color:rgba(0,255,136,0.2)">&#x1F3C6; Employer Brand<br><span style="font-size:0.7rem;color:#00ff88">2x offer acceptance</span></div>
+</div>
+</div>
+</div>
+<div class="content-card" style="margin-top:20px">
+<h4>&#x1F504; How Data Flows Through the System</h4>
+<ul>
+<li><strong>Inbound:</strong> Candidates apply via any channel (career page, job boards, referrals). All applications are centralized in the ATS, which serves as the single source of truth.</li>
+<li><strong>Trigger:</strong> Every ATS event (new application, status change, interview scheduled) fires a webhook to the AI Orchestration Engine.</li>
+<li><strong>Processing:</strong> The orchestration engine routes the event to the appropriate AI module &#8212; resume screening for new applications, scheduling agent for shortlisted candidates, communication hub for status updates.</li>
+<li><strong>Output:</strong> Each module produces actions (shortlist decisions, calendar invites, WhatsApp messages) that flow back through the integration layer to reach candidates, hiring managers, and interviewers.</li>
+<li><strong>Feedback Loop:</strong> Every hiring outcome (hire, reject, drop-off) feeds back into the ML models, enabling continuous improvement. The system gets smarter with every hire.</li>
+</ul>
+</div>
+</section>
+
+<!-- IMPLEMENTATION TIMELINE -->
+<section id="timeline" class="section">
+<div class="section-header">
+<div class="section-number">Rollout Plan</div>
+<h2 class="section-title"><span class="gradient-text">Implementation Timeline</span></h2>
+<p class="section-desc">A phased 12-month rollout &#8212; starting with quick wins, scaling to full automation, and optimizing with data-driven intelligence.</p>
+</div>
+<div class="timeline-container">
+<div class="timeline-phase">
+<div class="phase-header"><div class="phase-badge">Phase 1 &#xB7; Month 1&#8211;3</div><div class="phase-title">&#x1F3D7;&#xFE0F; Foundation &#8212; Build the Base</div></div>
+<div class="phase-bar"><div class="phase-bar-fill" style="width:25%"></div></div>
+<div class="phase-items">
+<div class="phase-item"><strong>ATS API Integration</strong> &#8212; Connect Greenhouse/Lever APIs; set up webhook pipeline for event-driven triggers across all modules.</div>
+<div class="phase-item"><strong>Resume Parser MVP</strong> &#8212; Deploy GPT-4 based resume parser with basic keyword + semantic matching. Test on 500 historical resumes for accuracy benchmarking.</div>
+<div class="phase-item"><strong>WhatsApp Chatbot MVP</strong> &#8212; Launch chatbot handling top 10 FAQs + real-time application status queries. Deploy via Gupshup/Wati on WhatsApp Business API.</div>
+<div class="phase-item"><strong>Candidate Portal v1</strong> &#8212; Basic React-based status tracker with 6-stage pipeline view. Accessible via unique link sent to each candidate.</div>
+</div>
+</div>
+<div class="timeline-phase">
+<div class="phase-header"><div class="phase-badge">Phase 2 &#xB7; Month 4&#8211;6</div><div class="phase-title">&#x1F680; Scale &#8212; Automate Core Workflows</div></div>
+<div class="phase-bar"><div class="phase-bar-fill" style="width:58%"></div></div>
+<div class="phase-items">
+<div class="phase-item"><strong>Full AI Screening Pipeline</strong> &#8212; Add Pinecone vector DB for semantic skill matching; deploy multi-factor scoring engine; enable auto-shortlisting with AI summary briefs.</div>
+<div class="phase-item"><strong>Interview Scheduling Agent</strong> &#8212; Deploy LangChain-based scheduling agent with Google Calendar/Outlook integration, Cal.com booking pages, and automated conflict resolution.</div>
+<div class="phase-item"><strong>Multi-Channel Reminders</strong> &#8212; Activate automated WhatsApp + SMS + email reminder system with escalation logic for panel no-shows and candidate non-responses.</div>
+<div class="phase-item"><strong>Nurture Campaign Engine</strong> &#8212; Launch personalized email/WhatsApp nurture sequences powered by Braze/Customer.io &#8212; interview prep kits, team culture content, hiring manager notes.</div>
+</div>
+</div>
+<div class="timeline-phase">
+<div class="phase-header"><div class="phase-badge">Phase 3 &#xB7; Month 7&#8211;12</div><div class="phase-title">&#x1F9E0; Optimize &#8212; Intelligence &amp; Continuous Learning</div></div>
+<div class="phase-bar"><div class="phase-bar-fill" style="width:100%"></div></div>
+<div class="phase-items">
+<div class="phase-item"><strong>Custom ML Scoring Model</strong> &#8212; Train a Cars24-specific scoring model on 12+ months of hiring data &#8212; which resume traits predict successful 90-day hires? Continuously improves accuracy.</div>
+<div class="phase-item"><strong>AI Feedback Generator</strong> &#8212; Deploy GPT-4 powered feedback engine for rejected candidates. Generates personalized, constructive feedback from interviewer notes.</div>
+<div class="phase-item"><strong>Predictive Analytics Dashboard</strong> &#8212; Time-to-hire forecasting per role type, candidate drop-off risk scoring, pipeline bottleneck identification, and recruiter workload prediction.</div>
+<div class="phase-item"><strong>Continuous Learning Loop</strong> &#8212; Every hire/reject/drop-off feeds back into all models. Screening accuracy improves, scheduling preferences learn, communication sequences optimize. The system gets 1% better every week.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ROI DASHBOARD -->
+<section id="roi" class="section">
+<div class="section-header">
+<div class="section-number">Business Case</div>
+<h2 class="section-title"><span class="gradient-text">ROI &amp; Impact Dashboard</span></h2>
+<p class="section-desc">Consolidated before-vs-after metrics demonstrating the business case for AI-driven HR automation at Cars24.</p>
+</div>
+<div class="roi-chart">
+<div class="roi-item">
+<h5>&#x23F1;&#xFE0F; Time-to-Hire (Days)</h5>
+<div class="bar-group"><div class="bar-label"><span>Before (Manual)</span><span style="color:#ff6b6b">45 days</span></div><div class="bar-track"><div class="bar-fill before" style="width:90%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>After (AI-Powered)</span><span style="color:#00d4ff">18 days</span></div><div class="bar-track"><div class="bar-fill after" style="width:36%"></div></div></div>
+</div>
+<div class="roi-item">
+<h5>&#x1F4B0; Cost-per-Hire</h5>
+<div class="bar-group"><div class="bar-label"><span>Before (Manual)</span><span style="color:#ff6b6b">&#8377;45,000</span></div><div class="bar-track"><div class="bar-fill before" style="width:90%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>After (AI-Powered)</span><span style="color:#00d4ff">&#8377;22,000</span></div><div class="bar-track"><div class="bar-fill after" style="width:44%"></div></div></div>
+</div>
+<div class="roi-item">
+<h5>&#x2B50; Candidate Satisfaction</h5>
+<div class="bar-group"><div class="bar-label"><span>Before (Manual)</span><span style="color:#ff6b6b">3.5 / 5.0</span></div><div class="bar-track"><div class="bar-fill before" style="width:70%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>After (AI-Powered)</span><span style="color:#00d4ff">4.5 / 5.0</span></div><div class="bar-track"><div class="bar-fill after" style="width:90%"></div></div></div>
+</div>
+<div class="roi-item">
+<h5>&#x1F4CA; Recruiter Productivity (Hires/Month/Recruiter)</h5>
+<div class="bar-group"><div class="bar-label"><span>Before (Manual)</span><span style="color:#ff6b6b">8 hires</span></div><div class="bar-track"><div class="bar-fill before" style="width:40%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>After (AI-Powered)</span><span style="color:#00d4ff">20 hires</span></div><div class="bar-track"><div class="bar-fill after" style="width:100%"></div></div></div>
+</div>
+<div class="roi-item">
+<h5>&#x1F4C9; Candidate Drop-Off Rate</h5>
+<div class="bar-group"><div class="bar-label"><span>Before (Manual)</span><span style="color:#ff6b6b">35%</span></div><div class="bar-track"><div class="bar-fill before" style="width:70%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>After (AI-Powered)</span><span style="color:#00d4ff">17%</span></div><div class="bar-track"><div class="bar-fill after" style="width:34%"></div></div></div>
+</div>
+<div class="roi-item" style="border-color:rgba(0,255,136,0.15)">
+<h5>&#x1F48E; Annual Savings Breakdown</h5>
+<div class="bar-group"><div class="bar-label"><span>Recruiter Time Saved (6,650 hrs)</span><span style="color:#00ff88">&#8377;1.2 Cr</span></div><div class="bar-track"><div class="bar-fill after" style="width:50%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>Reduced Drop-Off Rehiring Costs</span><span style="color:#00ff88">&#8377;55 Lakhs</span></div><div class="bar-track"><div class="bar-fill after" style="width:23%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>Faster Time-to-Hire (Productivity Gains)</span><span style="color:#00ff88">&#8377;45 Lakhs</span></div><div class="bar-track"><div class="bar-fill after" style="width:19%"></div></div></div>
+<div class="bar-group"><div class="bar-label"><span>Employer Brand ROI (Reduced Agency Fees)</span><span style="color:#00ff88">&#8377;20 Lakhs</span></div><div class="bar-track"><div class="bar-fill after" style="width:8%"></div></div></div>
+<div style="margin-top:16px;padding:14px;background:rgba(0,255,136,0.06);border-radius:10px;text-align:center">
+<span style="font-size:1.5rem;font-weight:800;color:#00ff88;font-family:'Poppins',sans-serif">Total: &#8377;2.4 Cr / Year</span><br>
+<span style="font-size:0.8rem;color:#888">Year 1 Investment: &#8377;35&#8211;50 Lakhs &#xB7; ROI Positive by Month 4 &#xB7; 5x return by Month 12</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ASSUMPTIONS -->
+<section id="assumptions" class="section">
+<div class="section-header">
+<div class="section-number">Context &amp; Constraints</div>
+<h2 class="section-title"><span class="gradient-text">Assumptions &amp; Constraints</span></h2>
+<p class="section-desc">Key assumptions that underpin this roadmap &#8212; stated clearly for transparency and to enable informed decision-making.</p>
+</div>
+<div class="assumptions-grid">
+<div class="assumption-card"><h5>&#x1F3E2; Company Context</h5><p>Cars24 is a high-growth AutoTech company with 4,000+ employees across 20+ cities and 4 countries. Hiring volume: 50&#8211;100 roles/quarter with periodic surges (e.g., 400+ hires in a single quarter). Mix of tech, operations, sales, and support roles.</p></div>
+<div class="assumption-card"><h5>&#x1F4BB; ATS Availability</h5><p>Assumes Cars24 uses (or will adopt) a modern ATS like Greenhouse, Lever, or equivalent with robust API access and webhook support. If using a legacy system, an additional 4&#8211;6 weeks of integration work may be needed in Phase 1.</p></div>
+<div class="assumption-card"><h5>&#x1F4B0; Budget</h5><p>Total Year 1 investment estimated at &#8377;35&#8211;50 Lakhs (one-time setup + monthly running costs). ROI positive by Month 4. Budget can be reduced by using open-source alternatives (Llama 3 instead of GPT-4, self-hosted Cal.com).</p></div>
+<div class="assumption-card"><h5>&#x1F465; Team Capacity</h5><p>Requires a dedicated 2-person engineering team for integration and maintenance (can be existing Cars24 engineers or outsourced). 1 HR lead for change management, recruiter training, and feedback collection. Executive sponsor from CHRO or VP Engineering.</p></div>
+<div class="assumption-card"><h5>&#x1F512; Data Privacy &amp; Compliance</h5><p>All solutions designed to comply with India's Digital Personal Data Protection (DPDP) Act 2023. Candidate data encrypted at rest and in transit. GDPR compliance for international candidates (UAE, Australia, Thailand). Bias audit conducted quarterly.</p></div>
+<div class="assumption-card"><h5>&#x1F504; Change Management</h5><p>Phased rollout with recruiter training at each phase. "AI assists, human decides" philosophy in Phase 1&#8211;2 to build trust. Feedback loops from recruiters and hiring managers inform system improvements. Goal: recruiters see AI as a force multiplier, not a replacement.</p></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>Designed by <span class="author">Riya Dhingra</span> | HR Automation Specialist</p>
+<p style="margin-top:6px;font-size:0.75rem;color:#444">Cars24 AI-Driven HR Automation Roadmap &#xB7; 2025</p>
+</div>
+
+</div><!-- End main-content -->
+
+<!-- JAVASCRIPT -->
+<script>
+function switchTab(problemNum, tabName) {
+    var section = document.getElementById('problem' + problemNum);
+    var allContents = section.querySelectorAll('.tab-content');
+    for (var i = 0; i < allContents.length; i++) { allContents[i].classList.remove('active'); }
+    var allBtns = section.querySelectorAll('.tab-btn');
+    for (var i = 0; i < allBtns.length; i++) { allBtns[i].classList.remove('active'); }
+    var targetId = 'p' + problemNum + '-' + tabName;
+    var targetContent = document.getElementById(targetId);
+    if (targetContent) targetContent.classList.add('active');
+    if (event && event.target) event.target.classList.add('active');
+}
+
+document.querySelectorAll('.nav-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var targetId = this.getAttribute('href').substring(1);
+        var targetEl = document.getElementById(targetId);
+        if (targetEl) { targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+});
+
+var sections = document.querySelectorAll('.section');
+var navLinks = document.querySelectorAll('.nav-link');
+var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            var id = entry.target.getAttribute('id');
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + id) { link.classList.add('active'); }
+            });
+        }
+    });
+}, { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+sections.forEach(function(section) { observer.observe(section); });
+</script>
+
+</body>
+</html>
